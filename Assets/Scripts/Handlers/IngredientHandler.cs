@@ -71,16 +71,31 @@ public class IngredientHandler : MonoBehaviour
             if (flag != -1)
             {
                 potionOutput.RemoveAt(flag);
+                Debug.Log($"Removed {potionToRemove} at {flag}");
+
             }
         }
         else
         {
-            Debug.Log($"Do not have {potionToRemove} on the ingredient list");
+            Debug.Log($"Do not have {potionToRemove} on the Potion list");
         }
     }
 
     // Getter
     public List<Enums.Potions> GetPotions() { return potionOutput; }
     public List<Enums.IngredientsTypes> GetIngredients() { return ingredients; }
+
+    public int GetNumberOfDuplicatePotions(Enums.Potions potionToCheck)
+    {
+        int flag = 0;
+        foreach (Enums.Potions potion in potionOutput)
+        {
+            if (potion == potionToCheck)
+            {
+                flag++;
+            }
+        }
+        return flag;
+    }
 
 }

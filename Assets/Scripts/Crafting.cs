@@ -32,7 +32,7 @@ public class Crafting : MonoBehaviour
 
         // Check if the player has the list of ingredients
 
-        // For the Healing Potion:
+        // For the Foam Potion:
         // ConcentratedLakeWater, MarbleShards, Dandelions, ButterflyWings
         if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.ConcentratedLakeWater) &&
             ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.MarbleShards) &&
@@ -45,10 +45,10 @@ public class Crafting : MonoBehaviour
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.Dandelions);
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.ButterflyWings);
 
-            ingredientHandler.AddToPotions(Enums.Potions.Healing);
+            ingredientHandler.AddToPotions(Enums.Potions.Foam);
         }
 
-        // Strength 
+        // Dust  
         // GeometricRocks, Ruby, SalmonOil, MintLeaves,
         if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.GeometricRocks) &&
             ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Ruby) &&
@@ -61,11 +61,11 @@ public class Crafting : MonoBehaviour
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.SalmonOil);
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.MintLeaves);
 
-            ingredientHandler.AddToPotions(Enums.Potions.Strength);
+            ingredientHandler.AddToPotions(Enums.Potions.Dust);
 
         }
 
-        // Defense 
+        // Spark  
         // ArmadilloShell, Milk, DiamondShavings, GoldOre
         if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.ArmadilloShell) &&
             ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Milk) &&
@@ -78,10 +78,10 @@ public class Crafting : MonoBehaviour
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.DiamondShavings);
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.GoldOre);
 
-            ingredientHandler.AddToPotions(Enums.Potions.Defense);
+            ingredientHandler.AddToPotions(Enums.Potions.Spark);
         }
 
-        // Stamina  
+        // Essence   
         // BeetleHorns, Honey, TruffleOil, CaveCarrots
         if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.BeetleHorns) &&
             ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Honey) &&
@@ -94,21 +94,13 @@ public class Crafting : MonoBehaviour
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.TruffleOil);
             ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.CaveCarrots);
 
-            ingredientHandler.AddToPotions(Enums.Potions.Stamina);
+            ingredientHandler.AddToPotions(Enums.Potions.Essence);
         }
-
-        // If there was no potions made create a Failed Potion
-        //if (potionOutput.Count == 0)
-        //{
-        //    potionOutput.Add(Enums.Potions.Failed);
-        //}
-
 
         // For Debugging
         foreach (Enums.Potions potion in ingredientHandler.GetPotions())
         {
             Debug.Log(potion);
-
         }
 
         PotionUI.SetActive(true);
