@@ -5,10 +5,10 @@ using TMPro;
 
 public class Crafting : MonoBehaviour
 {
-    [SerializeField] List<Enums.IngredientsTypes> ingredients;
-    [SerializeField] List<Enums.Potions> potionOutput;
     [SerializeField] GameObject PotionUI;
     [SerializeField] TMP_Text PotionTextsUI;
+
+    IngredientHandler ingredientHandler;
 
     public static Crafting Instance;
     private void Awake()
@@ -17,6 +17,8 @@ public class Crafting : MonoBehaviour
         {
             Instance = this;
         }
+
+        ingredientHandler = IngredientHandler.Instance;
     }
 
     private void Start()
@@ -27,57 +29,83 @@ public class Crafting : MonoBehaviour
     // Calls when you craft a potion
     public void CheckAvailablePotions()
    {
+
         // Check if the player has the list of ingredients
 
         // For the Healing Potion:
         // ConcentratedLakeWater, MarbleShards, Dandelions, ButterflyWings
-        if (ingredients.Contains(Enums.IngredientsTypes.ConcentratedLakeWater) && 
-            ingredients.Contains(Enums.IngredientsTypes.MarbleShards) &&
-            ingredients.Contains(Enums.IngredientsTypes.Dandelions) &&
-            ingredients.Contains(Enums.IngredientsTypes.ButterflyWings))
+        if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.ConcentratedLakeWater) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.MarbleShards) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Dandelions) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.ButterflyWings))
         {
-            potionOutput.Add(Enums.Potions.Healing);
+            //potionOutput.Add(Enums.Potions.Healing);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.ConcentratedLakeWater);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.MarbleShards);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.Dandelions);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.ButterflyWings);
+
+            ingredientHandler.AddToPotions(Enums.Potions.Healing);
         }
 
         // Strength 
         // GeometricRocks, Ruby, SalmonOil, MintLeaves,
-        if (ingredients.Contains(Enums.IngredientsTypes.GeometricRocks) &&
-            ingredients.Contains(Enums.IngredientsTypes.Ruby) &&
-            ingredients.Contains(Enums.IngredientsTypes.SalmonOil) &&
-            ingredients.Contains(Enums.IngredientsTypes.MintLeaves))
+        if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.GeometricRocks) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Ruby) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.SalmonOil) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.MintLeaves))
         {
-            potionOutput.Add(Enums.Potions.Strength);
+            //potionOutput.Add(Enums.Potions.Strength);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.GeometricRocks);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.Ruby);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.SalmonOil);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.MintLeaves);
+
+            ingredientHandler.AddToPotions(Enums.Potions.Strength);
+
         }
 
         // Defense 
         // ArmadilloShell, Milk, DiamondShavings, GoldOre
-        if (ingredients.Contains(Enums.IngredientsTypes.ArmadilloShell) &&
-            ingredients.Contains(Enums.IngredientsTypes.Milk) &&
-            ingredients.Contains(Enums.IngredientsTypes.DiamondShavings) &&
-            ingredients.Contains(Enums.IngredientsTypes.GoldOre))
+        if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.ArmadilloShell) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Milk) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.DiamondShavings) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.GoldOre))
         {
-            potionOutput.Add(Enums.Potions.Defense);
+            //potionOutput.Add(Enums.Potions.Defense);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.ArmadilloShell);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.Milk);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.DiamondShavings);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.GoldOre);
+
+            ingredientHandler.AddToPotions(Enums.Potions.Defense);
         }
 
         // Stamina  
         // BeetleHorns, Honey, TruffleOil, CaveCarrots
-        if (ingredients.Contains(Enums.IngredientsTypes.BeetleHorns) &&
-            ingredients.Contains(Enums.IngredientsTypes.Honey) &&
-            ingredients.Contains(Enums.IngredientsTypes.TruffleOil) &&
-            ingredients.Contains(Enums.IngredientsTypes.CaveCarrots))
+        if (ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.BeetleHorns) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.Honey) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.TruffleOil) &&
+            ingredientHandler.GetIngredients().Contains(Enums.IngredientsTypes.CaveCarrots))
         {
-            potionOutput.Add(Enums.Potions.Stamina);
+            //potionOutput.Add(Enums.Potions.Stamina);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.BeetleHorns);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.Honey);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.TruffleOil);
+            ingredientHandler.RemoveFromIngredients(Enums.IngredientsTypes.CaveCarrots);
+
+            ingredientHandler.AddToPotions(Enums.Potions.Stamina);
         }
 
         // If there was no potions made create a Failed Potion
-        if (potionOutput.Count == 0)
-        {
-            potionOutput.Add(Enums.Potions.Failed);
-        }
+        //if (potionOutput.Count == 0)
+        //{
+        //    potionOutput.Add(Enums.Potions.Failed);
+        //}
 
 
         // For Debugging
-        foreach (Enums.Potions potion in potionOutput)
+        foreach (Enums.Potions potion in ingredientHandler.GetPotions())
         {
             Debug.Log(potion);
 
@@ -90,15 +118,15 @@ public class Crafting : MonoBehaviour
     // Calls when you want to empty the Lists
     public void Clear()
     {
-        ingredients.Clear();
-        potionOutput.Clear();
+        //ingredients.Clear();
+        //potionOutput.Clear();
         PotionUI.SetActive(false);
     }
 
     void DisplayPotions()
     {
         string temp = "";
-        foreach (Enums.Potions potion in potionOutput)
+        foreach (Enums.Potions potion in ingredientHandler.GetPotions())
         {
             temp += potion.ToString() + "\n";
         }
@@ -107,15 +135,11 @@ public class Crafting : MonoBehaviour
     }
 
 
-
-    // Getter
-    public List<Enums.Potions> GetPotions() { return potionOutput; }
-
-
-    // Setter
+    // Add the ingredient to the ingredient handler
     public void AddIngredient(Enums.IngredientsTypes ingredientToAdd)
     {
-        ingredients.Add(ingredientToAdd);
+        //ingredients.Add(ingredientToAdd);
+        ingredientHandler.AddToIngredients(ingredientToAdd);
     }
 
 
