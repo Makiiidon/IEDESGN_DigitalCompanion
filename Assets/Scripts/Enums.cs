@@ -29,8 +29,10 @@ public class Enums
 
     public enum Potions
     {
+        None = 0,
+
         // Base Potions
-        Foam = 0,
+        Foam,
         Dust,
         Spark,
         Essence,

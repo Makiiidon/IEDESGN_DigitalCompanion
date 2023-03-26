@@ -16,6 +16,10 @@ public class IngredientHandler : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
 

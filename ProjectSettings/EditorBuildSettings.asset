@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MixScene.unity
     guid: d581b565d6aff4f4ab7de0d70fe202a7
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 30ffeaaaa083ae24587d42e4c0e479d5
+  - enabled: 1
+    path: Assets/Scenes/MagicMirror.unity
+    guid: e66c692a95553ab468ea14144faedd85
   m_configObjects: {}
