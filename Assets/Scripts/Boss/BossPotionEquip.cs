@@ -5,17 +5,14 @@ using TMPro;
 
 public class BossPotionEquip : MonoBehaviour
 {
-    IngredientHandler ingredientHandler;
-    BossPotionHandler bossPotionHandler;
-
+    UsePotionHandler usePotionHandler;
     [SerializeField] TMP_Text Text;
     [SerializeField] Enums.Potions potionType = Enums.Potions.None;
     bool calledOnce = false;
 
     private void Start()
     {
-        ingredientHandler = IngredientHandler.Instance;
-        bossPotionHandler = FindAnyObjectByType<BossPotionHandler>();
+        usePotionHandler = FindAnyObjectByType<UsePotionHandler>();
         Text.SetText(potionType.ToString());
     }
 
@@ -33,8 +30,7 @@ public class BossPotionEquip : MonoBehaviour
     public void EquipPotion() {
         if (!calledOnce)
         {
-            bossPotionHandler.SetEquippedPotion(potionType.ToString());
-            bossPotionHandler.OpenPotionMenu();
+            usePotionHandler.EquipPotion(potionType);
             calledOnce = true;
             gameObject.SetActive(false);
         }
@@ -43,6 +39,7 @@ public class BossPotionEquip : MonoBehaviour
     public void SetPotion(Enums.Potions potion)
     {
         potionType = potion;
+        Text.SetText(potion.ToString());
     }
 
     public void RemoveButton()

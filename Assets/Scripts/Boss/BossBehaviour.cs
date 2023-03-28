@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using Vuforia;
 
 public class BossBehaviour : MonoBehaviour
 {
     ContentPositioningBehaviour contentPosition;
+    Animator bossAnimator;
     bool isContentPlaced = false;
 
     [SerializeField] GameObject BossGameObject;
     [SerializeField] GameObject PotionUI;
+
+    [SerializeField] ParticleSystem SpawnFX;
 
     [SerializeField] SpriteRenderer bossRenderer;
     [SerializeField] Color NoColor;
@@ -32,9 +36,9 @@ public class BossBehaviour : MonoBehaviour
     void Start()
     {
         contentPosition = FindAnyObjectByType<ContentPositioningBehaviour>();
+        bossAnimator = GetComponent<Animator>();
         PotionUI.SetActive(false);
         bossRenderer.color = NoColor;
-
     }
 
     public void PositionContentAtPlaneAnchor(HitTestResult hitTestResult)
@@ -50,6 +54,8 @@ public class BossBehaviour : MonoBehaviour
     public void Found()
     {
         BossGameObject.SetActive(true);
+        SpawnFX.Play();
+
     }
     public void Lost()
     {
@@ -111,6 +117,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 damage += foamDamage;
             }
+            SpawnFX.startColor = FoamColor;
         }
 
         if (isDustBased)
@@ -120,6 +127,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 damage += dustDamage;
             }
+            SpawnFX.startColor = DustColor;
         }
 
         if (isSparkBased)
@@ -129,6 +137,7 @@ public class BossBehaviour : MonoBehaviour
             {
                 damage += sparkDamage;
             }
+            SpawnFX.startColor = SparkColor;
         }
 
         if (isEssenceBased)
@@ -138,8 +147,10 @@ public class BossBehaviour : MonoBehaviour
             {
                 damage += essenceDamage;
             }
+            SpawnFX.startColor = NoColor;
         }
 
+        SpawnFX.Play();
 
         // ========================== Reactions ============================= //
         if (bossType == Enums.Potions.None)
@@ -219,6 +230,10 @@ public class BossBehaviour : MonoBehaviour
         if (damage < 0)
         {
             damage = 0;
+        }
+        else
+        {
+            bossAnimator.SetTrigger("Hit");
         }
         // ============================= Add To score ================================ //
         Debug.Log($"Hit with {potion} Damage is : {damage}");

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Mixing : MonoBehaviour
@@ -133,6 +134,9 @@ public class Mixing : MonoBehaviour
             ingredientHandler.RemoveFromPotions(Enums.Potions.Essence);
             potionsToMix.Clear();
         }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     public int GetNumberOfDuplicatePotions(Enums.Potions potionToCheck)
