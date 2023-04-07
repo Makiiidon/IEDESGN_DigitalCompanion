@@ -9,6 +9,10 @@ public class IngredientHandler : MonoBehaviour
     [SerializeField] List<Enums.IngredientsTypes> ingredients;
     [SerializeField] List<Enums.Potions> potionOutput;
 
+    [SerializeField] List<Sprite> potionBodySprites;
+    [SerializeField] List<Sprite> potionLiquidSprites;
+    [SerializeField] List<Color> potionColor;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -102,4 +106,18 @@ public class IngredientHandler : MonoBehaviour
         return flag;
     }
 
+    public Sprite GetBodySprite(int index)
+    {
+        return potionBodySprites[index];
+    }
+
+    public Sprite GetLiquidSprite(int index)
+    {
+        return potionLiquidSprites[index];
+    }
+
+    public Color GetColor(int index)
+    {
+        return potionColor[index];
+    }
 }

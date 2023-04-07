@@ -7,23 +7,15 @@ public class Enums
     public enum IngredientsTypes
     {
         ConcentratedLakeWater = 0,
-        MarbleShards,
-        Dandelions,
         ButterflyWings,
 
         GeometricRocks,
         Ruby,
-        SalmonOil,
-        MintLeaves,
 
-        ArmadilloShell,
-        Milk,
         DiamondShavings,
         GoldOre,
 
         BeetleHorns,
-        Honey,
-        TruffleOil,
         CaveCarrots,
     }
 

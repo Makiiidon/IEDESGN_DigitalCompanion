@@ -490,7 +490,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: 
-  potionOutput: 
+  potionOutput: 010000000100000002000000030000000400000002000000
+  potionBodySprites:
+  - {fileID: 21300000, guid: b261d0f01953ba04bbe54397b63eb76e, type: 3}
+  - {fileID: 21300000, guid: ce5f96dd255cd29448a979929a17f057, type: 3}
+  - {fileID: 21300000, guid: 2d747f589f7138d40b3cd8a49b2a8eb9, type: 3}
+  - {fileID: 21300000, guid: 3d7f93219ca33104995077475d6a2db6, type: 3}
+  potionLiquidSprites:
+  - {fileID: 21300000, guid: cbaab10035bf7044aa603fa15363d995, type: 3}
+  - {fileID: 21300000, guid: 27b25195ebfdcf14da2fd5d62e608876, type: 3}
+  - {fileID: 21300000, guid: fc53e0d8ee37c434aaca4587ffd6eacf, type: 3}
+  - {fileID: 21300000, guid: 7c2e21b50efd21d438a52e69a4dd4deb, type: 3}
+  potionColor:
+  - {r: 0.5887772, g: 0.9200326, b: 0.9528302, a: 1}
+  - {r: 0.98039216, g: 0.78039217, b: 0.56078434, a: 1}
+  - {r: 0.90588236, g: 0.36470068, b: 0.13333334, a: 1}
+  - {r: 0.7137255, g: 0.50980395, b: 0.8784314, a: 1}
 --- !u!4 &617919111
 Transform:
   m_ObjectHideFlags: 0

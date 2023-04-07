@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BossScene.unity
     guid: 30ffeaaaa083ae24587d42e4c0e479d5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MagicMirror.unity
     guid: e66c692a95553ab468ea14144faedd85
   - enabled: 1

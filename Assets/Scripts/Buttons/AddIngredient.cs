@@ -11,6 +11,7 @@ public class AddIngredient : MonoBehaviour
     void Start()
     {
         craftingHandler = Crafting.Instance;
+        
     }
 
     public void Add()

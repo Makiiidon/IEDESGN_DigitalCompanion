@@ -10,9 +10,15 @@ public class Mixing : MonoBehaviour
     [SerializeField] List<Enums.Potions> potionsToMix; // ingredients for mixing
 
     public static Mixing Instance;
+    [SerializeField] GameObject OutputPanel;
 
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonHolder;
+
+    [SerializeField] PotionSprite potion1;
+    [SerializeField] PotionSprite potion2;
+
+    [SerializeField] PotionUI outputPotion;
 
     private void Awake()
     {
@@ -39,6 +45,8 @@ public class Mixing : MonoBehaviour
             }
             
         }
+        OutputPanel.SetActive(false);
+
     }
 
     public void AddToMix(Enums.Potions potion)
@@ -47,6 +55,15 @@ public class Mixing : MonoBehaviour
         {
             Debug.Log(potion + " Has been Added!!");
             potionsToMix.Add(potion); // add to the list of potions to use in mixing
+            if (potionsToMix.Count == 1)
+            {
+                potion1.ChangeSprite();
+            }
+            else
+            {
+                potion2.ChangeSprite();
+            }
+
         }
         else
         {
@@ -135,6 +152,15 @@ public class Mixing : MonoBehaviour
             potionsToMix.Clear();
         }
 
+        OutputPanel.SetActive(true);
+
+        outputPotion.Initialize(ingredientHandler.GetPotions()[ingredientHandler.GetPotions().Count - 1]);
+        
+    }
+
+    public void CloseOutputPanel()
+    {
+        //OutputPanel.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
@@ -150,5 +176,10 @@ public class Mixing : MonoBehaviour
             }
         }
         return flag;
+    }
+
+    public List<Enums.Potions> GetPotionsToMixList()
+    {
+        return potionsToMix;
     }
 }
