@@ -29,6 +29,16 @@ public class PotionUI : MonoBehaviour
         Color dust = ingredientHandler.GetColor(1);
         Color spark = ingredientHandler.GetColor(2);
         Color essence = ingredientHandler.GetColor(3);
+        Color floatColor = ingredientHandler.GetColor(4);
+        Color erosion = ingredientHandler.GetColor(5);
+        Color vapor = ingredientHandler.GetColor(6);
+        Color sludge = ingredientHandler.GetColor(7);
+        Color crystal = ingredientHandler.GetColor(8);
+        Color magma = ingredientHandler.GetColor(9);
+        Color obsidian = ingredientHandler.GetColor(10);
+        Color blueFire = ingredientHandler.GetColor(11);
+        Color star = ingredientHandler.GetColor(12);
+        Color voidColor = ingredientHandler.GetColor(13);
 
         if (potion == Enums.Potions.Foam)
         {
@@ -58,61 +68,61 @@ public class PotionUI : MonoBehaviour
         {
             body.sprite = ingredientHandler.GetBodySprite(0);
             liquid.sprite = ingredientHandler.GetLiquidSprite(0);
-            liquid.color = foam + foam;
+            liquid.color = floatColor;
         }
         else if (potion == Enums.Potions.Erosion)
         {
             body.sprite = ingredientHandler.GetBodySprite(1);
             liquid.sprite = ingredientHandler.GetLiquidSprite(1);
-            liquid.color = foam + dust;
+            liquid.color = erosion;
         }
         else if (potion == Enums.Potions.Vapor)
         {
             body.sprite = ingredientHandler.GetBodySprite(2);
             liquid.sprite = ingredientHandler.GetLiquidSprite(2);
-            liquid.color = foam + spark;
+            liquid.color = vapor;
         }
         else if (potion == Enums.Potions.Sludge)
         {
             body.sprite = ingredientHandler.GetBodySprite(3);
             liquid.sprite = ingredientHandler.GetLiquidSprite(3);
-            liquid.color = foam + essence;
+            liquid.color = sludge;
         }
         else if (potion == Enums.Potions.Crystal)
         {
             body.sprite = ingredientHandler.GetBodySprite(0);
             liquid.sprite = ingredientHandler.GetLiquidSprite(0);
-            liquid.color = dust + dust;
+            liquid.color = crystal;
         }
         else if (potion == Enums.Potions.Magma)
         {
             body.sprite = ingredientHandler.GetBodySprite(1);
             liquid.sprite = ingredientHandler.GetLiquidSprite(1);
-            liquid.color = dust + spark;
+            liquid.color = magma;
         }
         else if (potion == Enums.Potions.Obsidian)
         {
             body.sprite = ingredientHandler.GetBodySprite(2);
             liquid.sprite = ingredientHandler.GetLiquidSprite(2);
-            liquid.color = dust + essence;
+            liquid.color = obsidian;
         }
         else if (potion == Enums.Potions.BlueFire)
         {
             body.sprite = ingredientHandler.GetBodySprite(3);
             liquid.sprite = ingredientHandler.GetLiquidSprite(3);
-            liquid.color = spark + spark;
+            liquid.color = blueFire;
         }
         else if (potion == Enums.Potions.Star)
         {
             body.sprite = ingredientHandler.GetBodySprite(0);
             liquid.sprite = ingredientHandler.GetLiquidSprite(0);
-            liquid.color = spark + essence;
+            liquid.color = star;
         }
         else if (potion == Enums.Potions.Void)
         {
             body.sprite = ingredientHandler.GetBodySprite(1);
             liquid.sprite = ingredientHandler.GetLiquidSprite(1);
-            liquid.color = essence + essence;
+            liquid.color = voidColor;
         }
 
         name.SetText(potion.ToString());
