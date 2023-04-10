@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredients: 
-  potionOutput: 010000000100000002000000030000000400000002000000
+  potionOutput: 
   potionBodySprites:
   - {fileID: 21300000, guid: b261d0f01953ba04bbe54397b63eb76e, type: 3}
   - {fileID: 21300000, guid: ce5f96dd255cd29448a979929a17f057, type: 3}

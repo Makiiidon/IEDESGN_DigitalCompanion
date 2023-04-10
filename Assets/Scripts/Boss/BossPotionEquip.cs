@@ -10,6 +10,8 @@ public class BossPotionEquip : MonoBehaviour
     [SerializeField] Enums.Potions potionType = Enums.Potions.None;
     bool calledOnce = false;
 
+
+
     private void Start()
     {
         usePotionHandler = FindAnyObjectByType<UsePotionHandler>();
@@ -46,5 +48,5 @@ public class BossPotionEquip : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-
+   
 }

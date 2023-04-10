@@ -12,6 +12,7 @@ public class BossBehaviour : MonoBehaviour
 
     [SerializeField] GameObject BossGameObject;
     [SerializeField] GameObject PotionUI;
+    [SerializeField] GameObject ScoreUI;
 
     [SerializeField] ParticleSystem SpawnFX;
 
@@ -38,6 +39,7 @@ public class BossBehaviour : MonoBehaviour
         contentPosition = FindAnyObjectByType<ContentPositioningBehaviour>();
         bossAnimator = GetComponent<Animator>();
         PotionUI.SetActive(false);
+        ScoreUI.SetActive(false);
         bossRenderer.color = NoColor;
     }
 
@@ -48,6 +50,7 @@ public class BossBehaviour : MonoBehaviour
             contentPosition.PositionContentAtPlaneAnchor(hitTestResult);
             isContentPlaced = true;
             PotionUI.SetActive(true);
+            ScoreUI.SetActive(true);
         }
     }
 
